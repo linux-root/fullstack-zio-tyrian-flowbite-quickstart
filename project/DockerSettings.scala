@@ -2,7 +2,13 @@ import com.typesafe.sbt.SbtNativePackager.Docker
 import com.typesafe.sbt.packager.Keys.{dockerBuildCommand, dockerExecCommand, dockerBuildOptions}
 
 object DockerSettings {
-  lazy val repository = "chickentooth"
+
+  /**
+   * Container image tags will look like this :
+   * 'chickentooth/tyrian-flowbite-quickstart:backend-0.1.0' and 'chickentooth/tyrian-flowbite-quickstart:frontend-0.1.0'
+   * */
+  lazy val repository = "chickentooth" 
+
 
   /**
    * * support build x86 - intel CPU image on Mac M1 chip required run 'docker buildx install' to
