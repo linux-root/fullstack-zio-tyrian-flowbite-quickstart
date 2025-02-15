@@ -73,11 +73,9 @@ object DefaultRoutes {
   private val corsMiddleWare =
     cors(
       CorsConfig(
-        allowedOrigin = {
-          case origin =>
-            // Accept All origins
-            Some(AccessControlAllowOrigin.Specific(origin))
-          case _ => None
+        allowedOrigin = { case origin =>
+          // Accept All origins
+          Some(AccessControlAllowOrigin.Specific(origin))
         }
       )
     )
