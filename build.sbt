@@ -1,8 +1,7 @@
 import sbt.io.Path.relativeTo
 import com.typesafe.sbt.packager.docker.{Cmd, ExecCmd}
 
-lazy val scala3Version = "3.6.2"
-
+lazy val scala3Version = "3.7.1"
 ThisBuild / organization := "com.example"
 ThisBuild / scalaVersion := scala3Version
 
@@ -11,7 +10,7 @@ lazy val root = (project in file("."))
 /**
  * Frontend subproject
  */
-lazy val webpackDevServer = taskKey[Unit]("Start the dev server. It should be opened in a separate terminal")
+lazy val viteDevServer = taskKey[Unit]("Start the dev server. It should be opened in a separate terminal")
 lazy val publishDist      = taskKey[Unit]("Build a static web artifact")
 lazy val frontend = (project in file("frontend"))
   .enablePlugins(ScalaJSPlugin, DockerPlugin)
@@ -57,7 +56,7 @@ lazy val frontend = (project in file("frontend"))
     }
   )
   .settings(
-    webpackDevServer := {
+    viteDevServer := {
       CLIUtils.startFrontendDevServer(scalaVersion.value, Environtments.backendBaseUrl)
     },
     publishDist := {
