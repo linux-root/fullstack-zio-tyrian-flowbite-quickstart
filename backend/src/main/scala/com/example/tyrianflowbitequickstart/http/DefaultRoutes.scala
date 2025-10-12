@@ -73,9 +73,10 @@ object DefaultRoutes {
   private val corsMiddleWare =
     cors(
       CorsConfig(
-        allowedOrigin = { case origin =>
-          // Accept All origins
-          Some(AccessControlAllowOrigin.Specific(origin))
+        allowedOrigin = {
+          case origin if origin == Origin.parse("http://localhost:9876").toOption.get => // TODO: Move to  config
+            Some(AccessControlAllowOrigin.Specific(origin))
+          case _ => None
         }
       )
     )
@@ -107,7 +108,7 @@ object DefaultRoutes {
 
   val authenticated = withAuthMiddleware {
     Routes(
-      Method.GET / PathDef.randomMessage  -> handler(RandomQuotes.getRandomMessage.map(msg => Response.json(RandomMessage(msg).toJson))),
+      Method.GET / PathDef.randomMessage -> handler(RandomQuotes.getRandomMessage.map(msg => Response.json(RandomMessage(msg).toJson))),
       Method.GET / PathDef.randomMessage2 -> handler(RandomQuotes.getRandomMessage.map(msg => Response.json(RandomMessage(msg).toJson)))
     )
   } @@ corsMiddleWare
