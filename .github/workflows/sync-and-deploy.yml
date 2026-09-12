@@ -70,8 +70,13 @@ jobs:
           jvm: temurin:17
           apps: sbt
 
-      - name: Build static site (frontend only, backend not deployed here yet)
+      # BACKEND_BASE_URL is read at BUILD time, via sbt-buildinfo, and compiled into the JavaScript --
+      # setting it on the running backend does nothing. Without it the bundle calls http://localhost:8080,
+      # which is what every visitor's browser then tries to reach.
+      - name: Build static site (frontend only; the backend is deployed separately)
         run: sbt frontend/publishDist
+        env:
+          BACKEND_BASE_URL: https://tyrian-api.w47s0n.dev
 
       - name: Custom domain + SPA fallback for client-side routing
         run: |
