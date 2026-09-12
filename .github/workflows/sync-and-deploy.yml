@@ -27,8 +27,22 @@ jobs:
           jvm: temurin:17
           apps: sbt giter8
 
+      - uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
       - name: Render latest template
         run: g8 linux-root/tyrian-flowbite.g8 --backend=yes -o rendered </dev/null
+
+      # Runs before the compile step on purpose: the check copies the tree into the Nix store, and after
+      # sbt has run that tree also holds every target/ directory.
+      #
+      # The `path:` prefix bypasses Nix's git-tree handling. `rendered/` sits inside this repo's checkout,
+      # and for a flake under a git repository Nix sees only tracked files -- so a plain reference fails
+      # with "not tracked by Git" before evaluating anything.
+      - name: Verify the generated flake evaluates
+        run: nix flake check --no-build "path:$PWD/rendered"
 
       - name: Verify it compiles
         working-directory: rendered
