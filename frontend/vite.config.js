@@ -5,7 +5,6 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig(({ command }) => {
   const scalaVersion = '3.9.0'
   return {
-    base: process.env.VITE_BASE || '/',
     plugins: [tailwindcss()],
     resolve: {
       alias: {
