@@ -13,6 +13,7 @@ import com.example.tyrianflowbitequickstart.model.*
 import com.example.tyrianflowbitequickstart.model.Model.User
 import com.example.tyrianflowbitequickstart.util.Flowbite
 import com.example.tyrianflowbitequickstart.view.MainContainer
+import com.example.tyrianflowbitequickstart.view.ComponentShell
 import com.example.tyrianflowbitequickstart.route.*
 import com.example.tyrianflowbitequickstart.util.*
 import com.example.tyrianflowbitequickstart.page.*
@@ -105,7 +106,10 @@ object WebApp extends TyrianZIOApp[Msg, Model]:
       (model, cmd)
 
   def view(model: Model): Html[Msg] =
-    val pageContent = model.currentPage.render(model)
+    val page = model.currentPage
+    val pageContent = page match
+      case Page.Home | Page.Login => page.render(model)
+      case _                      => ComponentShell(page.title, page.render(model))
     MainContainer(pageContent, model.isDarkMode, model.isLoggedIn)
 
   def subscriptions(model: Model): Sub[Task, Msg] = Sub.None

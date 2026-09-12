@@ -5,9 +5,9 @@ object DockerSettings {
 
   /**
    * Container image tags will look like this :
-   * 'chickentooth/tyrian-flowbite-quickstart:backend-0.1.0' and 'chickentooth/tyrian-flowbite-quickstart:frontend-0.1.0'
+   * 'myrepo/tyrian-flowbite-quickstart:backend-0.1.0' and 'myrepo/tyrian-flowbite-quickstart:frontend-0.1.0'
    * */
-  lazy val repository = "chickentooth" 
+  lazy val repository = "myrepo" 
 
 
   /**

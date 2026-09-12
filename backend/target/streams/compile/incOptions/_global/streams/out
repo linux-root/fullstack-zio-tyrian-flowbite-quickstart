@@ -1,0 +1,48 @@
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = /home/runner/work/tyrian-flowbite.g8/tyrian-flowbite.g8/test-template/fullstack/backend/target/scala-3.9.0/classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = /home/runner/work/tyrian-flowbite.g8/tyrian-flowbite.g8/test-template/fullstack/backend/target/scala-3.9.0/classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTIssuer.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RandomQuotesLive.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	AppConfig.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTIssuer$User.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTVerifier$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTIssuer$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTVerifier$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RandomQuotesLive$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTVerifier.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	DefaultRoutes.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HtmlContent$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTIssuer$User$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTIssuer$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	AppConfig$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RandomQuotes$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HtmlContent.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	DefaultRoutes$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RandomQuotes.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTIssuer.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RandomQuotesLive.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	AppConfig.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTIssuer$User.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTVerifier$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTIssuer$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTVerifier$$anon$1.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RandomQuotesLive$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Main.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTVerifier.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	DefaultRoutes.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HtmlContent$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTIssuer$User$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	JWTIssuer$$anon$1.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	AppConfig$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RandomQuotes$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HtmlContent.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	DefaultRoutes$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	RandomQuotes.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: /home/runner/work/tyrian-flowbite.g8/tyrian-flowbite.g8/test-template/fullstack/backend/target/scala-3.9.0/classes.bak[0m
