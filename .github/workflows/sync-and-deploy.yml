@@ -35,24 +35,26 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
 
+      # Rendered outside the checkout: anything under it is picked up by `git add -A` below, which is how
+      # a full duplicate of this repo used to end up committed under rendered/.
       - name: Render latest template
-        run: g8 linux-root/tyrian-flowbite.g8 --backend=yes -o rendered </dev/null
+        run: g8 linux-root/tyrian-flowbite.g8 --backend=yes -o "$RUNNER_TEMP/rendered" </dev/null
 
       # Runs before the compile step on purpose: the check copies the tree into the Nix store, and after
       # sbt has run that tree also holds every target/ directory.
-      #
-      # The `path:` prefix bypasses Nix's git-tree handling. `rendered/` sits inside this repo's checkout,
-      # and for a flake under a git repository Nix sees only tracked files -- so a plain reference fails
-      # with "not tracked by Git" before evaluating anything.
       - name: Verify the generated flake evaluates
-        run: nix flake check --no-build "path:$PWD/rendered"
+        working-directory: ${{ runner.temp }}/rendered
+        run: nix flake check --no-build
 
       - name: Verify it compiles
-        working-directory: rendered
+        working-directory: ${{ runner.temp }}/rendered
         run: sbt -batch backend/compile frontend/compile </dev/null
 
+      # --delete makes this repo byte-identical to the fresh render, so the excludes carry real weight:
+      # .git keeps the history, this workflow is not part of the template and would delete itself, and
+      # the template's own .gitignore keeps out the target/ dirs the compile step just created.
       - name: Sync rendered output into this repo
-        run: rsync -a --delete --exclude='.git' --exclude='/rendered' --exclude='.github/workflows/sync-and-deploy.yml' --exclude-from='rendered/.gitignore' rendered/ .
+        run: rsync -a --delete --exclude='.git' --exclude='.github/workflows/sync-and-deploy.yml' --exclude-from="$RUNNER_TEMP/rendered/.gitignore" "$RUNNER_TEMP/rendered/" .
 
       - name: Commit if changed
         id: diff
